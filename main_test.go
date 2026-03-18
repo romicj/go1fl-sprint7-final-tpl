@@ -102,6 +102,10 @@ func TestCafeSearch(t *testing.T) {
 			arr = arr[:0]
 		}
 
+		for _, cafe := range arr {
+			assert.True(t, strings.Contains(strings.ToLower(cafe), strings.ToLower(v.search)))
+		}
+
 		assert.Len(t, arr, v.wantCount)
 	}
 }
