@@ -101,11 +101,10 @@ func TestCafeSearch(t *testing.T) {
 		if len(arr) == 1 && arr[0] == "" {
 			arr = arr[:0]
 		}
+		assert.Len(t, arr, v.wantCount)
 
 		for _, cafe := range arr {
-			assert.True(t, strings.Contains(strings.ToLower(cafe), strings.ToLower(v.search)))
+			assert.Contains(t, strings.ToLower(cafe), strings.ToLower(v.search))
 		}
-
-		assert.Len(t, arr, v.wantCount)
 	}
 }
